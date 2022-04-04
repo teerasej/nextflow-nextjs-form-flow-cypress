@@ -41,7 +41,7 @@ describe('Sign In', () => {
             
             cy.get(':submit').click()
             cy.url().should('include', '/signin')
-            cy.get('.warning').should('exist')
+            cy.contains('Username or Password not found').should('be.visible')
         })
     })
 })
