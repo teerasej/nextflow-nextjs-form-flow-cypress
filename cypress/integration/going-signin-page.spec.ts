@@ -21,4 +21,27 @@ describe('Sign In', () => {
 
         cy.get('title').contains('Sign In')
     })
+
+    context('should process the form', () => {
+
+        beforeEach(() => {
+            cy.get('a[href*="signin"]').click()
+            cy.url().should('include', '/signin')
+            cy.get('title').contains('Sign In')
+        })
+
+        it('should go to protected page', () => {
+            cy.get('#username').type('admin')
+            cy.get('#password').type('1234')
+            cy.get(':submit').click()
+            cy.url().should('include', '/protected')
+        })
+
+        it('should should warning if username password not found', () => {
+            
+            cy.get(':submit').click()
+            cy.url().should('include', '/signin')
+            cy.get('.warning').should('exist')
+        })
+    })
 })
