@@ -61,7 +61,7 @@ const SignInPage: NextPage = () => {
             {
                 warningMessage ?? 
                     (
-                        <div>{warningMessage}</div>
+                        <div className='warning'>{warningMessage}</div>
                     )
             }
         </div>
