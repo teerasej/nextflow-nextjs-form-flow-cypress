@@ -6,9 +6,14 @@
 // https://on.cypress.io/writing-first-test
 
 
-describe('Navigation to signin page', () => {
-    it('should navigate to the signin page', () => {
+describe('Sign In', () => {
+
+    beforeEach(() => {
         cy.visit('/')
+    })
+
+    it('should navigate to the signin page', () => {
+
 
         cy.get('a[href*="signin"]').click()
 
