@@ -59,10 +59,7 @@ const SignInPage: NextPage = () => {
                 <button type="submit">Submit</button>
             </form>
             {
-                warningMessage ?? 
-                    (
-                        <div>{warningMessage}</div>
-                    )
+                warningMessage ? <p className="warning">{warningMessage}</p> : <p></p>
             }
         </div>
     )
